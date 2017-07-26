@@ -1,0 +1,48 @@
+﻿<Window x:Class="CamShow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CamShow"
+        mc:Ignorable="d"
+        x:Name="CamShowWindow"
+        Title="CamShow" Height="600" Width="800" Closing="Window_Closing" ResizeMode="CanResizeWithGrip" KeyDown="Window_KeyDown" Background="Black" WindowStartupLocation="CenterScreen" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SizeToContent="WidthAndHeight">
+    <Window.Resources>
+        <BitmapImage x:Key="enterFullscreen" UriSource="Resources/fs.png" />
+        <BitmapImage x:Key="exitFullscreen" UriSource="Resources/nfs.png" />
+
+        <BitmapImage x:Key="pause" UriSource="Resources/pause.png" />
+        <BitmapImage x:Key="play" UriSource="Resources/play.png" />
+
+        <BitmapImage x:Key="options" UriSource="Resources/options.png" />
+    </Window.Resources>
+    <Grid x:Name="container">
+        <Image x:Name="videoImage"  Stretch="Uniform"/>
+
+        <Expander x:Name="expander" VerticalAlignment="Bottom" Margin="10,270,10,0"  ExpandDirection="Up" IsExpanded="True" HorizontalContentAlignment="Center" >
+            <Border Background="#bb3C3C3C" CornerRadius="6">
+                <StackPanel  Height="32" Orientation="Horizontal">
+                    <Button x:Name="optionsBtn" HorizontalAlignment="Left" Height="22" Margin="10,5,0,5" VerticalAlignment="Center" Width="Auto" ToolTip="View camera options" BorderThickness="0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Click="optionsBtn_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="optionsImage" Source="{StaticResource options}" Width="16" Height="16" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <ComboBox x:Name="captureDevices" HorizontalAlignment="Left" Height="22" Margin="10,5,0,5" VerticalAlignment="Center" Width="158" SelectionChanged="captureDevices_SelectionChanged"/>
+                    <ComboBox x:Name="webcamResolutions" HorizontalAlignment="Left" Height="22" Margin="10,5,0,5" VerticalAlignment="Bottom" Width="98"  SelectionChanged="webcamResolutions_SelectionChanged"/>
+                    <Button x:Name="fullscreen" HorizontalAlignment="Left" Height="22" Margin="10,5,0,5" VerticalAlignment="Center" Width="Auto" Click="fullscreen_Click" ToolTip="Toggle fullscreen mode" BorderThickness="0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="fullscreenImage" Source="{StaticResource enterFullscreen}" Width="16" Height="16" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="playPauseBtn" HorizontalAlignment="Left" Height="22" Margin="10,5,0,5" VerticalAlignment="Center" Width="Auto" ToolTip="Play/Pause" BorderThickness="0" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{x:Null}" Click="playPauseBtn_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image x:Name="playPauseImage" Source="{StaticResource pause}" Width="16" Height="16" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                    <CheckBox x:Name="invert" Content="Flip image" HorizontalAlignment="Left" Height="22" Margin="10,5,0,5" Width="85" Foreground="White" IsChecked="{Binding invertVideo}" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </Expander>
+
+    </Grid>
+</Window>
