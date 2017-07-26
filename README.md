@@ -17,3 +17,6 @@ If you want to keep the current image up on the screen whilst you set up the nex
 To make the most of your projector, you'll probably want to go fullscreen, so hit the fullscreen button!
 You can hide the toolbar if it is in the way by pressing the down arrow button.
 If the image is too dark or too light, hit the options button (three horizontal lines), to bring up the camera's configuration page. Especially useful is to increase contrast when showing printed text material.
+
+## More information ##
+For more background on this application, as well as recommendations of what to look for in a webcam, and binaries, please check out the page on my blog, [http://pmb.neongrit.net/blog/camshow-webcam-d…on-for-educators/]
